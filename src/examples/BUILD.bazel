@@ -1,0 +1,11 @@
+cc_binary(
+    name = "connection",
+    srcs = ["connection.cpp"],
+    copts = ["-std=c++20"],
+    deps = [
+    #     "//lib:hello_app"
+        "@boost.asio",
+        "@serial//:serial", # @<repo_name>//:<target_name> 
+ 
+    ]
+)

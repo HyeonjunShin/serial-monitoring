@@ -1,0 +1,7 @@
+cc_library(
+    name = "serial",
+    srcs = glob(["src/**"]),
+    includes = ["include/"],
+    hdrs = glob(["include/**"]),
+    visibility = ["//visibility:public"],
+)
