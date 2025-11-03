@@ -6,40 +6,49 @@ module(
 bazel_dep(name = "rules_cc", version = "0.2.11")
 bazel_dep(name = "bzlws", version = "0.2.0")
 
-bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
+
+# bazel-compile-commands 추가
+bazel_dep(name = "bazel-compile-commands", version = "0.0.0")
 git_override(
-    module_name = "hedron_compile_commands", # 재정의할 모듈 이름
-    commit = "4f28899228fb3ad0126897876f147ca15026151e", # 사용할 특정 Git 커밋 해시
-    remote = "https://github.com/hedronvision/bazel-compile-commands-extractor.git", # 모듈을 가져올 Git 저장소 URL
+    module_name = "bazel-compile-commands",
+    remote = "https://github.com/kiron1/bazel-compile-commands.git",
+    tag = "v0.20.0",
 )
 
-bazel_dep(name = "toolchains_llvm", version = "1.5.0", dev_dependency = True)
-llvm = use_extension("@toolchains_llvm//toolchain/extensions:llvm.bzl", "llvm", dev_dependency = True)
-llvm.toolchain(llvm_version = "19.1.0")
-use_repo(llvm, "llvm_toolchain")
-register_toolchains("@llvm_toolchain//:all", dev_dependency = True)
+# bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
+# git_override(
+#     module_name = "hedron_compile_commands", # 재정의할 모듈 이름
+#     commit = "4f28899228fb3ad0126897876f147ca15026151e", # 사용할 특정 Git 커밋 해시
+#     remote = "https://github.com/hedronvision/bazel-compile-commands-extractor.git", # 모듈을 가져올 Git 저장소 URL
+# )
+
+# bazel_dep(name = "toolchains_llvm", version = "1.5.0", dev_dependency = True)
+# llvm = use_extension("@toolchains_llvm//toolchain/extensions:llvm.bzl", "llvm", dev_dependency = True)
+# llvm.toolchain(llvm_version = "19.1.0")
+# use_repo(llvm, "llvm_toolchain")
+# register_toolchains("@llvm_toolchain//:all", dev_dependency = True)
 
 
-# dependencies for the development.
-bazel_dep(name = "boost.asio", version = "1.89.0")
+# # dependencies for the development.
+# bazel_dep(name = "boost.asio", version = "1.89.0")
 
-git_repo_rule = use_repo_rule(
-    "@bazel_tools//tools/build_defs/repo:git.bzl",
-    "new_git_repository",
-)
+# git_repo_rule = use_repo_rule(
+#     "@bazel_tools//tools/build_defs/repo:git.bzl",
+#     "new_git_repository",
+# )
 
-git_repo_rule(
-    name = "serial",
-    remote = "https://github.com/wjwwood/serial",
-    tag = "1.2.1",
-    build_file_content =
-"""
-cc_library(
-    name = "serial",
-    srcs = glob(["src/**"]),
-    includes = ["include/"],
-    hdrs = glob(["include/**"]),
-    visibility = ["//visibility:public"],
-)
-""",
-)
+# git_repo_rule(
+#     name = "serial",
+#     remote = "https://github.com/wjwwood/serial",
+#     tag = "1.2.1",
+#     build_file_content =
+# """
+# cc_library(
+#     name = "serial",
+#     srcs = glob(["src/**"]),
+#     includes = ["include/"],
+#     hdrs = glob(["include/**"]),
+#     visibility = ["//visibility:public"],
+# )
+# """,
+# )

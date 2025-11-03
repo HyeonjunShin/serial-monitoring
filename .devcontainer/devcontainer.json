@@ -21,7 +21,7 @@
 	"runArgs": [
 		"-it",
 		"--rm",
-		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+		// "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
 		"--device=/dev/ttyUSB0:/dev/ttyUSB0"
 	],
 	"containerEnv": {

@@ -17,7 +17,7 @@ RUN curl -LO "https://github.com/bazelbuild/bazelisk/releases/download/${BAZELIS
     chmod +x bazelisk-linux-amd64 && \
     mv bazelisk-linux-amd64 /usr/local/bin/bazel
 
-ARG BUILDIFIER_VERSION="v8.2.1" # 원하는 버전으로 변경
+ARG BUILDIFIER_VERSION="v8.2.1"
 RUN curl -LO "https://github.com/bazelbuild/buildtools/releases/download/${BUILDIFIER_VERSION}/buildifier-linux-amd64" && \
     chmod +x buildifier-linux-amd64 && \
     mv buildifier-linux-amd64 /usr/local/bin/buildifier
@@ -27,7 +27,7 @@ RUN apt update && apt install -y wget lsb-release software-properties-common gnu
     && wget https://apt.llvm.org/llvm.sh -O /tmp/llvm.sh \
     && chmod +x /tmp/llvm.sh \ 
     && /tmp/llvm.sh 21 \
-    && ln -s /usr/bin/clangd-21 /usr/bin/clangd
+    && ln -s /usr/bin/clangd-21 /usr/bin/clangd 
 
 # RUN apt update && \
 #     apt install -y apt-transport-https curl gnupg wget lsb-release software-properties-common git && \
@@ -62,4 +62,6 @@ CMD ["/bin/bash"]
 # # [Optional] Uncomment this section to install additional packages.
 # # RUN apt update && export DEBIAN_FRONTEND=noninteractive \
 # #     && apt -y install --no-install-recommends <your-package-list-here>
+
+
 
