@@ -2,19 +2,20 @@ module(
     name = "bazel_tutorial",
     version = "0.1",
 )
-# 
+
+#
 bazel_dep(name = "rules_cc", version = "0.2.11")
 bazel_dep(name = "bzlws", version = "0.2.0")
 
-
-# bazel-compile-commands 추가
+# bazel-compile-commands
+# $ bazel build @bazel-compile-commands//bcc:bazel-compile-commands
+# bazel-bin/external/bazel-compile-commands/bcc/bazel-compile-commands
 bazel_dep(name = "bazel-compile-commands", version = "0.0.0")
 git_override(
     module_name = "bazel-compile-commands",
     remote = "https://github.com/kiron1/bazel-compile-commands.git",
     tag = "v0.20.0",
 )
-
 # bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
 # git_override(
 #     module_name = "hedron_compile_commands", # 재정의할 모듈 이름
@@ -28,13 +29,29 @@ git_override(
 # use_repo(llvm, "llvm_toolchain")
 # register_toolchains("@llvm_toolchain//:all", dev_dependency = True)
 
-
-# # dependencies for the development.
+# dependencies for the development. (https://registry.bazel.build/)
 # bazel_dep(name = "boost.asio", version = "1.89.0")
+bazel_dep(name = "boost.asio", version = "1.87.0")
 
 # git_repo_rule = use_repo_rule(
 #     "@bazel_tools//tools/build_defs/repo:git.bzl",
 #     "new_git_repository",
+# )
+
+# git_repo_rule(
+#     name = "boost",
+#     remote = "https://github.com/boostorg/asio",
+#     tag = "boost-1.89.0",
+#     build_file_content =
+# """
+# cc_library(
+#     name = "asio",
+#     srcs = glob(["include/**"]),
+#     includes = ["include/"],
+#     hdrs = glob(["include/**"]),
+#     visibility = ["//visibility:public"],
+# )
+# """,
 # )
 
 # git_repo_rule(
@@ -45,8 +62,7 @@ git_override(
 # """
 # cc_library(
 #     name = "serial",
-#     srcs = glob(["src/**"]),
-#     includes = ["include/"],
+#     srcs = glob(["src/**"]), 
 #     hdrs = glob(["include/**"]),
 #     visibility = ["//visibility:public"],
 # )

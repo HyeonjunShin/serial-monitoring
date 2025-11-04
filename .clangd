@@ -1,0 +1,4 @@
+CompileFlags:
+  CompilationDatabase: .
+  Remove: [-fno-canonical-system-headers]
+  Add: [-std=c++20]

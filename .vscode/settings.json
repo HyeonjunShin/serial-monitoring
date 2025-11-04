@@ -1,14 +1,15 @@
 {
+    "C_Cpp.autocomplete": "disabled",
+    "C_Cpp.intelliSenseEngine": "disabled",
+
     "[cpp]": {
         "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
-        
         "editor.formatOnSave": true
     },
+
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
     "clangd.detectExtensionConflicts": false,
-    "C_Cpp.autocomplete": "disabled",
-    "C_Cpp.intelliSenseEngine": "disabled",
     // "clangd.path": "/usr/lib/llvm-12/bin/clangd",
     "clangd.path": "/usr/bin/clangd",
     // "terminal.integrated.fontSize": 16,

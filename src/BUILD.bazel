@@ -1,10 +1,14 @@
 cc_binary(
-    name = "serial-to-csv",
-    srcs = ["serial_to_csv.cpp"],
+    name = "main",
+    srcs = [
+        "main.cpp",
+        "serial_reader.cpp",
+        "serial_reader.hpp",
+    ],
     copts = ["-std=c++20"],
     deps = [
     #     "//lib:hello_app"
-        # "@boost.asio",
+        "@boost.asio",
         # "@serial//:serial", # @<repo_name>//:<target_name> 
  
     ]

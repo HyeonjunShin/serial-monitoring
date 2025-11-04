@@ -59,6 +59,7 @@
     "https://bcr.bazel.build/modules/boost.array/1.87.0/source.json": "0583a9fd9d24a14e33b74b4342f94b4a4a3b539af11b0c12403a1a4da1f1548a",
     "https://bcr.bazel.build/modules/boost.asio/1.87.0.bcr.1/MODULE.bazel": "1ade8151b7b7e31f438851097447773ba338ef08713b70792c033fdc9b2879bc",
     "https://bcr.bazel.build/modules/boost.asio/1.87.0.bcr.1/source.json": "b789f2c3da92dea05ce6a1b879d16de31f71b552b949c02b2c0760ee70ebbbe7",
+    "https://bcr.bazel.build/modules/boost.asio/1.87.0/MODULE.bazel": "caa8fe0f72815392e4136b24224d030d36b80c472d5b11de281f1691a75259b9",
     "https://bcr.bazel.build/modules/boost.assert/1.87.0/MODULE.bazel": "8a950da6e19dd6d6427b95b1cfe1d2fc86eb598f6fb753345d925eb92d74a821",
     "https://bcr.bazel.build/modules/boost.assert/1.87.0/source.json": "085a7c247d90bb4f8f5c3cc7eec1994f3d46d2a26af1947c85ff6f8ddd86ce59",
     "https://bcr.bazel.build/modules/boost.atomic/1.87.0/MODULE.bazel": "7afe1354a8901637ba820edd6ec83a1602ba68f8af31d285d4704a1ec23a2fb6",

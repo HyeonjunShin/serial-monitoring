@@ -2,5 +2,8 @@
 // #include <serial/serial.h>
 
 int main() { 
-  
-  return 0; }
+  std::cout << "test" << std::endl;
+
+
+  return 0; 
+}
