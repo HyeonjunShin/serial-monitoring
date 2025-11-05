@@ -1,0 +1,47 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // {
+    //   "name": "Python: Launch Debug",
+    //   "type": "python",
+    //   "request": "launch",
+    //   "preLaunchTask": "Bazel Build (Run)",
+    //   "program": "${file}",
+    //   "envFile": "${workspaceFolder}/.env",
+    // },    
+    {
+      "name": "Cpp: Launch Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "preLaunchTask": "Bazel Build (Debug)",
+      "program": "${workspaceFolder}/bazel-bin/${relativeFileDirname}/${fileBasenameNoExtension}",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+    },
+    // {
+    //   "name": "Cpp in Python: Launch Debug",
+    //   "type": "cppdbg",
+    //   "request": "launch",
+    //   "preLaunchTask": "Bazel Build (Debug)",
+    //   "program": "/usr/local/bin/python3",
+    //   "args": ["${file}"],
+    //   "cwd": "${workspaceFolder}",
+    //   "stopAtEntry": false,
+    //   "externalConsole": false,
+    //   "MIMode": "gdb",
+    //   "miDebuggerPath": "/usr/bin/gdb",
+    //   "setupCommands": [
+    //       {
+    //           "description": "Enable pretty-printing for gdb",
+    //           "text": "-enable-pretty-printing",
+    //           "ignoreFailures": true
+    //       }
+    //   ],
+    //   "envFile": "${workspaceFolder}/.env",
+    // },
+  ]
+}

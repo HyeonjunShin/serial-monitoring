@@ -1,15 +1,29 @@
+cc_library(
+    name = "config",
+    srcs = ["config.cpp"],
+    hdrs = ["config.hpp"],
+    deps = ["@nlohmann_json//:json"],
+)
+
+cc_library(
+    name = "serial_reader",
+    srcs = ["serial_reader.cpp"],
+    hdrs = ["serial_reader.hpp"],
+    deps = [
+        ":config",
+        "@boost.asio",
+    ],
+)
+
 cc_binary(
     name = "main",
     srcs = [
         "main.cpp",
-        "serial_reader.cpp",
-        "serial_reader.hpp",
     ],
     copts = ["-std=c++20"],
     deps = [
-    #     "//lib:hello_app"
+        ":config",
+        ":serial_reader",
         "@boost.asio",
-        # "@serial//:serial", # @<repo_name>//:<target_name> 
- 
     ]
 )

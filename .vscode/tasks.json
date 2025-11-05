@@ -2,6 +2,15 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Bazel Build (Debug)",
+      "type": "shell",
+      "command": "bazel build //src:main --compilation_mode=dbg",
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": "build"
+    },
+    {
       "label": "Run bazel-compile-commands",
       "command": "./bazel-bin/external/bazel-compile-commands+/bcc/bazel-compile-commands",
       "type": "shell",

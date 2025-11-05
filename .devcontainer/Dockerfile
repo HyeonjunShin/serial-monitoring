@@ -8,6 +8,7 @@ RUN apt update && \
     unzip \
     ca-certificates \
     build-essential \
+    gdb \
     openjdk-17-jdk \
     wget lsb-release software-properties-common gnupg \
     && apt clean && rm -rf /var/lib/apt/lists/*
@@ -28,6 +29,15 @@ RUN apt update && apt install -y wget lsb-release software-properties-common gnu
     && chmod +x /tmp/llvm.sh \ 
     && /tmp/llvm.sh 21 \
     && ln -s /usr/bin/clangd-21 /usr/bin/clangd 
+
+# etc...
+SHELL ["/bin/bash", "-c"]
+
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash \
+    && source ~/.nvm/nvm.sh \
+    && nvm install 24 \
+    && npm install -g @google/gemini-cli@latest
+
 
 # RUN apt update && \
 #     apt install -y apt-transport-https curl gnupg wget lsb-release software-properties-common git && \

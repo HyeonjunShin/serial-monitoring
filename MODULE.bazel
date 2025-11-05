@@ -16,6 +16,7 @@ git_override(
     remote = "https://github.com/kiron1/bazel-compile-commands.git",
     tag = "v0.20.0",
 )
+
 # bazel_dep(name = "hedron_compile_commands", dev_dependency = True)
 # git_override(
 #     module_name = "hedron_compile_commands", # 재정의할 모듈 이름
@@ -32,11 +33,28 @@ git_override(
 # dependencies for the development. (https://registry.bazel.build/)
 # bazel_dep(name = "boost.asio", version = "1.89.0")
 bazel_dep(name = "boost.asio", version = "1.87.0")
+bazel_dep(name = "nlohmann_json", version = "3.12.0")
 
 # git_repo_rule = use_repo_rule(
 #     "@bazel_tools//tools/build_defs/repo:git.bzl",
-#     "new_git_repository",
+#     "git_repository",
 # )
+
+# git_repo_rule(
+#     name = "nlohmann_json",
+#     remote = "https://github.com/nlohmann/json",
+#     tag = "v3.12.0",
+#     build_file_content =
+# """
+# package(default_visibility = ["//visibility:public"])
+# cc_library(
+#     name = "json",
+#     hdrs = glob(["single_include/nlohmann/json.hpp"]),
+#     includes = ["single_include"],
+# )
+# """,
+# )
+
 
 # git_repo_rule(
 #     name = "boost",
@@ -65,6 +83,45 @@ bazel_dep(name = "boost.asio", version = "1.87.0")
 #     srcs = glob(["src/**"]), 
 #     hdrs = glob(["include/**"]),
 #     visibility = ["//visibility:public"],
+# )
+# """,
+# )
+
+
+# Eigen을 외부 모듈로 추가
+
+http_archive = use_repo_rule(
+    "@bazel_tools//tools/build_defs/repo:http.bzl", 
+    "http_archive")
+
+# http_archive(
+#     name = "eigen",
+#     urls = ["https://gitlab.com/libeigen/eigen/-/archive/3.4.0/eigen-3.4.0.tar.gz"],
+#     strip_prefix = "eigen-3.4.0",
+#     build_file_content = 
+# """
+# package(default_visibility = ["//visibility:public"])
+
+# cc_library(
+#     name = "eigen",
+#     hdrs = glob(["Eigen/**", "unsupported/**"]),
+#     includes = ["."],
+# )
+# """,
+# )
+
+# http_archive(
+#     name = "nlohmann_json",
+#     urls = ["https://github.com/nlohmann/json/archive/refs/tags/v3.11.2.tar.gz"],
+#     strip_prefix = "json-3.11.2",
+#     build_file_content = 
+# """
+# package(default_visibility = ["//visibility:public"])
+
+# cc_library(
+#     name = "json",
+#     hdrs = glob(["single_include/nlohmann/json.hpp"]),
+#     includes = ["single_include"],
 # )
 # """,
 # )
