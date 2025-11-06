@@ -44,12 +44,9 @@ struct DataPacket {
   uint8_t header[4];
   uint16_t data_size;
   uint32_t tick;
-  bool flag;
-  int16_t acc[3];
-  int16_t gyro[3];
-  int16_t temperature;
-  uint16_t loadcell;
-  uint16_t mic[32];
+  // bool flag;
+  uint16_t mic1[32];
+  uint16_t mic2[32];
   uint16_t crc;
 };
 #pragma pack(pop)
@@ -85,20 +82,17 @@ std::ostream &operator<<(std::ostream &os, const DataPacket &packet) {
 
   os << "Data Size: " << packet.data_size << " bytes" << std::endl;
   os << "Tick: " << packet.tick << std::endl;
-  os << "Flag: " << (packet.flag ? "True" : "False") << std::endl;
+  // os << "Flag: " << (packet.flag ? "True" : "False") << std::endl;
 
-  os << "Acceleration (X, Y, Z): (" << packet.acc[0] << ", " << packet.acc[1]
-     << ", " << packet.acc[2] << ")" << std::endl;
-
-  os << "Gyroscope (X, Y, Z): (" << packet.gyro[0] << ", " << packet.gyro[1]
-     << ", " << packet.gyro[2] << ")" << std::endl;
-
-  os << "Temperature: " << packet.temperature << " C" << std::endl;
-  os << "Loadcell Value: " << packet.loadcell << std::endl;
-
-  os << "Mic 1 Data: [";
+  os << "Mic 1 Data [";
   for (int i = 0; i < 32; ++i) {
-    os << packet.mic[i] << (i == 31 ? "" : ", ");
+    os << packet.mic1[i] << (i == 31 ? "" : ", ");
+  }
+  os << "]" << std::endl;
+
+  os << "Mic 2 Data [";
+  for (int i = 0; i < 32; ++i) {
+    os << packet.mic2[i] << (i == 31 ? "" : ", ");
   }
   os << "]" << std::endl;
 

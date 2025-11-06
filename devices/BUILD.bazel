@@ -13,3 +13,12 @@ cc_library(
         ":device_interface"
     ],
 )
+
+cc_library(
+    name = "device2",
+    # srcs = ["d1.cpp"],
+    hdrs = ["d2.hpp"],
+    deps = [
+        ":device_interface"
+    ],
+)

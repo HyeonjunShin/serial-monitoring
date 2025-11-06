@@ -1,5 +1,5 @@
 module(
-    name = "bazel_tutorial",
+    name = "serial_monitoring",
     version = "0.1",
 )
 
@@ -33,7 +33,6 @@ git_override(
 # dependencies for the development. (https://registry.bazel.build/)
 # bazel_dep(name = "boost.asio", version = "1.89.0")
 bazel_dep(name = "boost.asio", version = "1.87.0")
-bazel_dep(name = "nlohmann_json", version = "3.12.0")
 
 # git_repo_rule = use_repo_rule(
 #     "@bazel_tools//tools/build_defs/repo:git.bzl",

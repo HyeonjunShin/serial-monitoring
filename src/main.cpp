@@ -1,4 +1,5 @@
 #include "devices/d1.hpp"
+// #include "devices/d2.hpp"
 #include <boost/asio.hpp>
 #include <cstdint>
 #include <cstring>
@@ -6,7 +7,7 @@
 #include <pthread.h>
 
 int main() {
-  Device *device = new DeviceV1();
+  Device *device = new DeviceImpl();
 
   boost::asio::io_context io_;
   boost::asio::serial_port serial(io_);

@@ -6,6 +6,7 @@ cc_binary(
     copts = ["-std=c++20"],
     deps = [
         "//devices:device1",
+        "//devices:device2",
         "@boost.asio",
     ]
 )
