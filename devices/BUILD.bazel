@@ -1,0 +1,15 @@
+package(default_visibility = ["//src:__pkg__"])
+
+cc_library(
+    name = "device_interface",
+    hdrs = ["device.hpp"],
+)
+
+cc_library(
+    name = "device1",
+    # srcs = ["d1.cpp"],
+    hdrs = ["d1.hpp"],
+    deps = [
+        ":device_interface"
+    ],
+)

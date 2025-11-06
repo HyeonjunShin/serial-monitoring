@@ -90,9 +90,9 @@ bazel_dep(name = "nlohmann_json", version = "3.12.0")
 
 # Eigen을 외부 모듈로 추가
 
-http_archive = use_repo_rule(
-    "@bazel_tools//tools/build_defs/repo:http.bzl", 
-    "http_archive")
+# http_archive = use_repo_rule(
+#     "@bazel_tools//tools/build_defs/repo:http.bzl", 
+#     "http_archive")
 
 # http_archive(
 #     name = "eigen",
