@@ -34,3 +34,14 @@ cc_binary(
         # "@boost.asio",
     ]
 )
+
+cc_binary(
+    name = "virtual_device",
+    srcs = [
+        "virtual_device.cpp"
+    ],
+    copts = ["-std=c++20"],
+    deps = [
+        "//devices:device"
+    ]
+)
