@@ -651,22 +651,7 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/bits/istream.tcc \
   /usr/include/c++/11/bits/sstream.tcc \
   /usr/include/c++/11/iostream \
-  ../src/process_thread.hpp \
-  ../src/queue.hpp \
-  /usr/include/c++/11/condition_variable \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/limits \
-  /usr/include/c++/11/bits/parse_numbers.h \
-  /usr/include/c++/11/bits/std_mutex.h \
-  /usr/include/c++/11/bits/unique_lock.h \
-  /usr/include/c++/11/bits/shared_ptr.h \
-  /usr/include/c++/11/bits/shared_ptr_base.h \
-  /usr/include/c++/11/bits/allocated_ptr.h \
-  /usr/include/c++/11/bits/refwrap.h \
-  /usr/include/c++/11/ext/aligned_buffer.h \
-  /usr/include/c++/11/ext/concurrence.h \
-  /usr/include/c++/11/stop_token \
+  ../include/logger.hpp \
   /usr/include/c++/11/atomic \
   /usr/include/c++/11/bits/atomic_base.h \
   /usr/include/c++/11/bits/atomic_lockfree_defines.h \
@@ -694,6 +679,20 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/x86_64-linux-gnu/asm/unistd.h \
   /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/include/c++/11/bits/std_mutex.h \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/condition_variable \
+  /usr/include/c++/11/bits/unique_lock.h \
+  /usr/include/c++/11/bits/shared_ptr.h \
+  /usr/include/c++/11/bits/shared_ptr_base.h \
+  /usr/include/c++/11/bits/allocated_ptr.h \
+  /usr/include/c++/11/bits/refwrap.h \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/ext/concurrence.h \
+  /usr/include/c++/11/stop_token \
   /usr/include/c++/11/bits/std_thread.h \
   /usr/include/c++/11/semaphore \
   /usr/include/c++/11/bits/semaphore_base.h \
@@ -702,6 +701,16 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/semaphore.h \
   /usr/include/x86_64-linux-gnu/bits/semaphore.h \
+  /usr/include/c++/11/filesystem \
+  /usr/include/c++/11/bits/fs_fwd.h \
+  /usr/include/c++/11/bits/fs_path.h \
+  /usr/include/c++/11/codecvt \
+  /usr/include/c++/11/bits/fs_dir.h \
+  /usr/include/c++/11/bits/fs_ops.h \
+  /usr/include/c++/11/fstream \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+  /usr/include/c++/11/bits/fstream.tcc \
   /usr/include/c++/11/mutex \
   /usr/include/c++/11/queue \
   /usr/include/c++/11/deque \
@@ -713,6 +722,9 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/vector.tcc \
   /usr/include/c++/11/bits/stl_queue.h \
+  /usr/include/c++/11/thread \
+  ../src/process_thread.hpp \
+  ../src/queue.hpp \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
@@ -1817,7 +1829,6 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/boost/asio/windows/stream_handle.hpp \
   /usr/include/boost/asio/write_at.hpp \
   /usr/include/boost/asio/impl/write_at.hpp \
-  /usr/include/c++/11/thread \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication \
   /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qapplication.h \
   /usr/include/x86_64-linux-gnu/qt6/QtCore/qcoreapplication.h \
@@ -1866,8 +1877,6 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/QApplication:
 
-/usr/include/c++/11/thread:
-
 /usr/include/boost/asio/write_at.hpp:
 
 /usr/include/boost/asio/windows/stream_handle.hpp:
@@ -1915,8 +1924,6 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qvariant.h:
 
 /usr/include/boost/predef/hardware/simd/arm.h:
-
-/usr/include/boost/predef/hardware/simd/x86_amd/versions.h:
 
 /usr/include/boost/predef/hardware/simd/x86.h:
 
@@ -2212,23 +2219,29 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/boost/asio/deadline_timer.hpp:
 
-/usr/include/boost/asio/ip/impl/address_v6.ipp:
+/usr/include/boost/asio/coroutine.hpp:
 
-/usr/include/boost/assert/source_location.hpp:
+/usr/include/boost/asio/impl/connect.hpp:
 
-/usr/include/boost/predef/compiler/watcom.h:
+/usr/include/boost/asio/impl/compose.hpp:
 
-/usr/include/boost/asio/handler_alloc_hook.hpp:
+/usr/include/boost/asio/impl/use_awaitable.hpp:
+
+/usr/include/boost/asio/use_awaitable.hpp:
+
+/usr/include/boost/asio/impl/dispatch.hpp:
+
+/usr/include/boost/asio/dispatch.hpp:
+
+/usr/include/boost/asio/impl/co_spawn.hpp:
+
+/usr/include/boost/asio/buffers_iterator.hpp:
 
 /usr/include/boost/asio/detail/handler_alloc_helpers.hpp:
 
 /usr/include/boost/asio/ip/impl/address_v6.hpp:
 
 /usr/include/boost/assert.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
 /usr/include/c++/11/backward/auto_ptr.h:
 
@@ -2251,12 +2264,6 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/boost/asio/traits/start_free.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
-
-/usr/include/boost/asio/detail/thread_info_base.hpp:
-
-/usr/include/boost/asio/execution/detail/as_operation.hpp:
-
-/usr/include/c++/11/compare:
 
 /usr/include/boost/asio/execution/receiver.hpp:
 
@@ -2324,6 +2331,8 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/boost/asio/detail/impl/timer_queue_ptime.ipp:
 
+/usr/include/c++/11/thread:
+
 /usr/include/boost/asio/detail/wrapped_handler.hpp:
 
 /usr/include/boost/config/detail/select_compiler_config.hpp:
@@ -2340,6 +2349,8 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/boost/type_traits/is_base_of.hpp:
 
+../src/queue.hpp:
+
 /usr/include/boost/config/detail/posix_features.hpp:
 
 /usr/include/c++/11/iterator:
@@ -2348,6 +2359,16 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/boost/asio/detail/epoll_reactor.hpp:
 
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
+
+/usr/include/x86_64-linux-gnu/qt6/QtCore/qvector.h:
+
+/usr/include/boost/numeric/conversion/udt_builtin_mixture_enum.hpp:
+
+/usr/include/c++/11/fstream:
+
 /usr/include/boost/asio/execution/set_done.hpp:
 
 /usr/include/c++/11/bits/stl_heap.h:
@@ -2355,8 +2376,6 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
 /usr/include/c++/11/bits/atomic_timed_wait.h:
 
 /usr/include/linux/ioctl.h:
-
-../src/queue.hpp:
 
 /usr/include/c++/11/bits/deque.tcc:
 
@@ -2372,13 +2391,9 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/boost/asio/detail/descriptor_write_op.hpp:
 
-/usr/include/boost/asio/detail/keyword_tss_ptr.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
-
-/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:
-
 /usr/include/boost/asio/ip/impl/host_name.ipp:
+
+/usr/include/c++/11/bits/fs_ops.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtWidgets/qsizepolicy.h:
 
@@ -2506,8 +2521,6 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qbytearraylist.h:
 
-/usr/include/boost/asio/buffers_iterator.hpp:
-
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qanystringview.h:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qconfig.h:
@@ -2518,7 +2531,9 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
-/usr/include/boost/asio/impl/co_spawn.hpp:
+/usr/include/c++/11/compare:
+
+/usr/include/c++/11/filesystem:
 
 /usr/include/boost/asio/execution/impl/receiver_invocation_error.ipp:
 
@@ -2580,11 +2595,13 @@ CMakeFiles/main.dir/src/main.cpp.o: ../src/main.cpp \
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qbasicatomic.h:
 
-/usr/include/boost/asio/multiple_exceptions.hpp:
-
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
 /usr/include/c++/11/bits/specfun.h:
+
+/usr/include/boost/asio/connect.hpp:
+
+/usr/include/c++/11/bits/stl_list.h:
 
 /usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
@@ -2778,8 +2795,6 @@ main_autogen/mocs_compilation.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
-/usr/include/boost/asio/impl/handler_alloc_hook.ipp:
-
 /usr/include/boost/predef/library/std/vacpp.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
@@ -2799,6 +2814,14 @@ main_autogen/mocs_compilation.cpp:
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qstringtokenizer.h:
 
 /usr/include/boost/config.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+
+/usr/include/boost/predef/compiler/watcom.h:
+
+/usr/include/boost/asio/handler_alloc_hook.hpp:
 
 /usr/include/boost/asio/ip/impl/address_v4.hpp:
 
@@ -2843,10 +2866,6 @@ main_autogen/mocs_compilation.cpp:
 /usr/include/boost/asio/traits/set_done_free.hpp:
 
 /usr/include/c++/11/bits/std_mutex.h:
-
-/usr/include/boost/asio/detail/scoped_ptr.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h:
 
 /usr/include/boost/predef/compiler/gcc.h:
 
@@ -2896,6 +2915,8 @@ main_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/11/bits/allocated_ptr.h:
 
+/usr/include/c++/11/codecvt:
+
 /usr/include/c++/11/bits/string_view.tcc:
 
 /usr/include/c++/11/bits/functional_hash.h:
@@ -2903,10 +2924,6 @@ main_autogen/mocs_compilation.cpp:
 /usr/include/boost/date_time/gregorian/greg_ymd.hpp:
 
 /usr/include/c++/11/backward/binders.h:
-
-/usr/include/boost/throw_exception.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:
 
 /usr/include/boost/asio/detail/date_time_fwd.hpp:
 
@@ -2918,15 +2935,11 @@ main_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/11/bits/stl_algobase.h:
 
-/usr/include/boost/asio/detail/throw_exception.hpp:
-
 /usr/include/c++/11/bits/stl_function.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/include/c++/11/bits/range_access.h:
-
-/usr/include/boost/asio/impl/compose.hpp:
 
 /usr/include/boost/asio/ip/impl/address_v4.ipp:
 
@@ -3060,6 +3073,12 @@ main_autogen/mocs_compilation.cpp:
 
 /usr/include/c++/11/tr1/beta_function.tcc:
 
+/usr/include/boost/asio/compose.hpp:
+
+/usr/include/c++/11/tr1/poly_laguerre.tcc:
+
+/usr/include/c++/11/array:
+
 /usr/include/boost/asio/detail/executor_op.hpp:
 
 /usr/include/c++/11/stop_token:
@@ -3093,8 +3112,6 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 /usr/include/boost/mpl/aux_/has_apply.hpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qbitmap.h:
-
-/usr/include/boost/asio/impl/connect.hpp:
 
 /usr/include/netdb.h:
 
@@ -3135,10 +3152,6 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 /usr/include/c++/11/concepts:
 
 /usr/include/boost/asio/detail/impl/service_registry.hpp:
-
-/usr/include/x86_64-linux-gnu/qt6/QtCore/qvector.h:
-
-/usr/include/boost/numeric/conversion/udt_builtin_mixture_enum.hpp:
 
 /usr/include/c++/11/bits/cxxabi_forced.h:
 
@@ -3262,13 +3275,17 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 
 /usr/include/boost/asio/detail/posix_static_mutex.hpp:
 
-/usr/include/boost/asio/detail/non_const_lvalue.hpp:
-
-/usr/include/boost/asio/impl/post.hpp:
-
 /usr/include/boost/asio/detail/cstddef.hpp:
 
 /usr/include/boost/asio/detail/global.hpp:
+
+/usr/include/boost/predef/hardware/simd/x86_amd/versions.h:
+
+../include/logger.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/signal_ext.h:
+
+/usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_atomic.hpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qsysinfo.h:
 
@@ -3310,6 +3327,10 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 
 /usr/include/boost/mpl/aux_/yes_no.hpp:
 
+/usr/include/boost/asio/co_spawn.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
 /usr/include/boost/numeric/conversion/detail/udt_builtin_mixture.hpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtGui/qpaintdevice.h:
@@ -3336,11 +3357,17 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 
 /usr/include/linux/limits.h:
 
-/usr/include/boost/asio/coroutine.hpp:
-
 /usr/include/boost/mpl/bool.hpp:
 
+/usr/include/c++/11/bits/fs_fwd.h:
+
 /usr/include/c++/11/bits/stl_bvector.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
+
+/usr/include/boost/asio/detail/keyword_tss_ptr.hpp:
+
+/usr/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
 
@@ -3365,6 +3392,10 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 /usr/include/stdlib.h:
 
 /usr/include/boost/date_time/locale_config.hpp:
+
+/usr/include/x86_64-linux-gnu/qt6/QtWidgets/qtwidgetsglobal.h:
+
+/usr/include/boost/asio/detail/scoped_ptr.hpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qset.h:
 
@@ -3396,10 +3427,6 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 
 /usr/include/boost/asio/execution/detail/as_invocable.hpp:
 
-/usr/include/c++/11/bits/stl_list.h:
-
-/usr/include/boost/asio/connect.hpp:
-
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
 
 /usr/include/boost/mpl/aux_/adl_barrier.hpp:
@@ -3413,6 +3440,8 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 /usr/include/boost/asio/detail/bind_handler.hpp:
 
 /usr/include/boost/asio/detail/handler_cont_helpers.hpp:
+
+/usr/include/c++/11/bits/fs_path.h:
 
 /usr/include/alloca.h:
 
@@ -3439,6 +3468,10 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 /usr/include/x86_64-linux-gnu/asm/unistd.h:
 
 /usr/include/c++/11/bits/locale_facets.tcc:
+
+/usr/include/boost/asio/detail/non_const_lvalue.hpp:
+
+/usr/include/boost/asio/impl/post.hpp:
 
 /usr/include/boost/asio/detail/reactive_descriptor_service.hpp:
 
@@ -3503,6 +3536,14 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 /usr/include/c++/11/bits/basic_ios.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h:
+
+/usr/include/boost/asio/placeholders.hpp:
+
+/usr/include/boost/asio/impl/system_context.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/include/c++/11/bits/exception.h:
 
 /usr/include/c++/11/bits/locale_facets.h:
 
@@ -3649,6 +3690,24 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 /usr/include/c++/11/bits/locale_conv.h:
 
 /usr/include/boost/asio/execution/bulk_execute.hpp:
+
+/usr/include/boost/asio/execution/detail/as_operation.hpp:
+
+/usr/include/boost/asio/detail/thread_info_base.hpp:
+
+/usr/include/boost/asio/multiple_exceptions.hpp:
+
+/usr/include/boost/asio/impl/handler_alloc_hook.ipp:
+
+/usr/include/boost/asio/detail/throw_exception.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/boost/throw_exception.hpp:
+
+/usr/include/boost/asio/ip/impl/address_v6.ipp:
+
+/usr/include/boost/assert/source_location.hpp:
 
 /usr/include/boost/is_placeholder.hpp:
 
@@ -3910,8 +3969,6 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 
 /usr/include/boost/mpl/aux_/config/compiler.hpp:
 
-/usr/include/boost/asio/use_awaitable.hpp:
-
 /usr/include/boost/asio/detail/select_interrupter.hpp:
 
 /usr/include/boost/asio/detail/eventfd_select_interrupter.hpp:
@@ -4017,14 +4074,6 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h:
 
 /usr/include/boost/asio/detail/thread_group.hpp:
-
-/usr/include/boost/asio/placeholders.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
-/usr/include/c++/11/bits/exception.h:
-
-/usr/include/boost/asio/impl/system_context.hpp:
 
 /usr/include/boost/asio/is_read_buffered.hpp:
 
@@ -4145,12 +4194,6 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 /usr/include/boost/mpl/aux_/config/ttp.hpp:
 
 /usr/include/boost/smart_ptr/detail/sp_has_sync_intrinsics.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/signal_ext.h:
-
-/usr/include/boost/smart_ptr/detail/sp_counted_base_gcc_atomic.hpp:
-
-/usr/include/boost/asio/impl/dispatch.hpp:
 
 /usr/include/boost/smart_ptr/detail/sp_typeinfo_.hpp:
 
@@ -4293,6 +4336,8 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 /usr/include/boost/numeric/conversion/detail/conversion_traits.hpp:
 
 /usr/include/boost/asio/impl/defer.hpp:
+
+/usr/include/c++/11/bits/fstream.tcc:
 
 /usr/include/boost/type_traits/is_floating_point.hpp:
 
@@ -4612,6 +4657,8 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 
 /usr/include/boost/asio/basic_socket_acceptor.hpp:
 
+/usr/include/c++/11/bits/fs_dir.h:
+
 /usr/include/boost/asio/basic_waitable_timer.hpp:
 
 /usr/include/x86_64-linux-gnu/qt6/QtCore/qtextstream.h:
@@ -4629,17 +4676,3 @@ main_autogen/6YEA5652QU/moc_realtime_spectrogram_widget.cpp:
 /usr/include/boost/predef/architecture.h:
 
 /usr/include/boost/asio/buffered_write_stream_fwd.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/typesizes.h:
-
-/usr/include/boost/asio/co_spawn.hpp:
-
-/usr/include/boost/asio/dispatch.hpp:
-
-/usr/include/boost/asio/impl/use_awaitable.hpp:
-
-/usr/include/c++/11/tr1/poly_laguerre.tcc:
-
-/usr/include/c++/11/array:
-
-/usr/include/boost/asio/compose.hpp:

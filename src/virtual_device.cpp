@@ -1,4 +1,4 @@
-#include "devices/device.hpp"
+#include "device.hpp"
 #include <arpa/inet.h>
 #include <cstring>
 #include <iostream>
