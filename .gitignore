@@ -40,7 +40,4 @@
 # debug information files
 *.dwo
 
-bazel-bin
-bazel-out
-bazel-serial-monitoring
-bazel-testlogs
+.cache/

@@ -1,0 +1,3 @@
+/workspaces/serial-monitoring/build/_CPack_Packages/Linux/TZ/serial_monitoring-0.1.0-Linux/bin/main
+/workspaces/serial-monitoring/build/_CPack_Packages/Linux/TZ/serial_monitoring-0.1.0-Linux/include/device.hpp
+/workspaces/serial-monitoring/build/_CPack_Packages/Linux/TZ/serial_monitoring-0.1.0-Linux/share/serial_monitoring/README.md

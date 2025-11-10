@@ -1,0 +1,12 @@
+/workspaces/serial-monitoring/build/CMakeFiles/main.dir
+/workspaces/serial-monitoring/build/CMakeFiles/gui.dir
+/workspaces/serial-monitoring/build/CMakeFiles/package.dir
+/workspaces/serial-monitoring/build/CMakeFiles/package_source.dir
+/workspaces/serial-monitoring/build/CMakeFiles/edit_cache.dir
+/workspaces/serial-monitoring/build/CMakeFiles/rebuild_cache.dir
+/workspaces/serial-monitoring/build/CMakeFiles/list_install_components.dir
+/workspaces/serial-monitoring/build/CMakeFiles/install.dir
+/workspaces/serial-monitoring/build/CMakeFiles/install/local.dir
+/workspaces/serial-monitoring/build/CMakeFiles/install/strip.dir
+/workspaces/serial-monitoring/build/CMakeFiles/main_autogen.dir
+/workspaces/serial-monitoring/build/CMakeFiles/gui_autogen.dir

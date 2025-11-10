@@ -1,6 +1,0 @@
-package(default_visibility = ["//src:__pkg__"])
-
-cc_library(
-    name = "device",
-    hdrs = ["device.hpp"],
-)

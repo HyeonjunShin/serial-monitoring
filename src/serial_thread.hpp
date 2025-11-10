@@ -1,4 +1,4 @@
-#include "devices/device.hpp"
+#include "device.hpp"
 #include "queue.hpp"
 #include <atomic>
 #include <boost/asio.hpp>

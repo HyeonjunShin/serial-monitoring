@@ -1,9 +1,10 @@
-#include "devices/device.hpp"
+#include "device.hpp"
 #include "queue.hpp"
 #include <cstddef>
 #include <cstdint>
 #include <cstring>
 #include <functional>
+#include <memory>
 #include <vector>
 
 class ProcessThread {

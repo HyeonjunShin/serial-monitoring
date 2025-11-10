@@ -20,5 +20,6 @@
     "files.associations": {
         "iostream": "cpp",
         "cstring": "cpp"
-    } // compile_commands.json에 없는 파일 처리용
+    }, 
+
 }

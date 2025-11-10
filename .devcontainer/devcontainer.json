@@ -13,8 +13,8 @@
 			"extensions": [
 				"ms-vscode.cpptools",
 				"llvm-vs-code-extensions.vscode-clangd",
-				"bazelbuild.vscode-bazel",
-				"google.geminicodeassist"
+				"ms-vscode.cmake-tools",
+				"google.geminicodeassist@2.55.0"
 			]
 		}
 	},
@@ -22,12 +22,16 @@
 	"runArgs": [
 		"-it",
 		"--rm",
-		// "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
-		"--device=/dev/ttyUSB0:/dev/ttyUSB0"
+		"--volume=/tmp/.X11-unix:/tmp/.X11-unix:rw",
+		"--device=/dev/ttyUSB0:/dev/ttyUSB0",
+		"--group-add", "dialout" // For serial port access
 	],
 	"containerEnv": {
-    	"DISPLAY": "${localEnv:DISPLAY}"
-	}
+		"DISPLAY": ":1.0",
+		"XDG_RUNTIME_DIR": "/tmp/runtime-vscode"
+	},
+	"remoteUser": "vscode"
+
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},

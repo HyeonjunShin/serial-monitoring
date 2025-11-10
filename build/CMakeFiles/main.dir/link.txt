@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -Wall -g -O0 CMakeFiles/main.dir/main_autogen/mocs_compilation.cpp.o CMakeFiles/main.dir/src/main.cpp.o -o main  /usr/lib/x86_64-linux-gnu/libQt6Widgets.so.6.2.4 /usr/lib/x86_64-linux-gnu/libQt6Gui.so.6.2.4 /usr/lib/x86_64-linux-gnu/libQt6Core.so.6.2.4 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so 
