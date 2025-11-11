@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
   QApplication app(argc, argv);
 
   RealtimeSpectrogramWidget widget;
-  widget.resize(1000, 600);
+  widget.resize(2000, 300);
   widget.show();
 
   Logger logger("../logs/");
@@ -35,8 +35,8 @@ int main(int argc, char *argv[]) {
   process_thread.start();
   logger.start();
 
-  sleep(10);
-  // app.exec();
+  // sleep(10);
+  app.exec();
 
   serial_thread.stop();
   process_thread.stop();
