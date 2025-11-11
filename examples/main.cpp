@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
   widget.resize(2000, 300);
   widget.show();
 
-  Logger logger("../logs/");
+  Logger logger("./logs/");
 
   ThreadSafeQueue<uint8_t> queue(PACKET_SIZE);
   SerialThread serial_thread(queue);

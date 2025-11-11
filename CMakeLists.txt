@@ -25,7 +25,7 @@ find_package(Boost REQUIRED)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 add_executable(main 
-  src/main.cpp
+  examples/main.cpp
   ${CMAKE_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
 )
 target_include_directories(main PRIVATE 
@@ -35,7 +35,7 @@ target_link_libraries(main PRIVATE Qt6::Widgets)
 
 
 add_executable(gui
-  src/gui.cpp
+  examples/gui.cpp
   ${CMAKE_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
 )
 target_include_directories(gui PRIVATE 
