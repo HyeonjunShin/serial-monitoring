@@ -15,6 +15,7 @@
 				"llvm-vs-code-extensions.vscode-clangd",
 				"ms-vscode.cmake-tools",
 				"google.geminicodeassist@2.55.0",
+				"ms-vscode.cmake-tools"
 				]
 		}
 	},
