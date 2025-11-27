@@ -21,8 +21,22 @@ set(CPACK_GENERATOR "TGZ;ZIP")
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "hyeonnnjunnn@gmail.com")
 
 
-find_package(Boost REQUIRED)
+# find_package(Boost REQUIRED)
+include(FetchContent)
+FetchContent_Declare(
+  asio
+  GIT_REPOSITORY https://github.com/chriskohlhoff/asio.git
+  GIT_TAG asio-1-36-0
+)
+FetchContent_MakeAvailable(asio)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
+
+add_library(serial src/piezo_serial.cpp)
+target_include_directories(serial PUBLIC
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
+  asio
+)
+
 
 add_executable(main 
   examples/main.cpp
@@ -33,7 +47,6 @@ target_include_directories(main PRIVATE
 )
 target_link_libraries(main PRIVATE Qt6::Widgets)
 
-
 add_executable(gui
   examples/gui.cpp
   ${CMAKE_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
@@ -43,29 +56,31 @@ target_include_directories(gui PRIVATE
 )
 target_link_libraries(gui PRIVATE Qt6::Widgets)
 
-
-if(Boost_FOUND)
-  message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
-  target_include_directories(main PRIVATE ${Boost_INCLUDE_DIRS})
-  # gui 타겟에도 필요하다면 추가
-  # target_include_directories(gui PRIVATE ${Boost_INCLUDE_DIRS})
-endif()
+add_executable(serial_tset examples/serial_test.cpp )
 
 
+# if(Boost_FOUND)
+#   message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
+#   target_include_directories(main PRIVATE ${Boost_INCLUDE_DIRS})
+#   # gui 타겟에도 필요하다면 추가
+#   # target_include_directories(gui PRIVATE ${Boost_INCLUDE_DIRS})
+# endif()
 
-install(TARGETS main
-  RUNTIME DESTINATION bin
-)
-install(TARGETS gui
-  RUNTIME DESTINATION bin
-)
 
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/ 
-  DESTINATION include
-  FILES_MATCHING PATTERN "*.hpp" PATTERN "*.h"
-)
+# install(TARGETS main
+#   RUNTIME DESTINATION bin
+# )
+# install(TARGETS gui
+#   RUNTIME DESTINATION bin
+# )
 
-install(FILES "${CMAKE_SOURCE_DIR}/README.md"
-  DESTINATION share/${PROJECT_NAME}
-)
+
+# install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/ 
+#   DESTINATION include
+#   FILES_MATCHING PATTERN "*.hpp" PATTERN "*.h"
+# )
+
+# install(FILES "${CMAKE_SOURCE_DIR}/README.md"
+#   DESTINATION share/${PROJECT_NAME}
+# )
