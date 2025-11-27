@@ -29,6 +29,7 @@ FetchContent_Declare(
   GIT_TAG asio-1-36-0
 )
 FetchContent_MakeAvailable(asio)
+
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 add_library(serial src/piezo_serial.cpp)
@@ -56,7 +57,9 @@ target_include_directories(gui PRIVATE
 )
 target_link_libraries(gui PRIVATE Qt6::Widgets)
 
-add_executable(serial_tset examples/serial_test.cpp )
+
+add_executable(serial_tset examples/serial_test.cpp)
+target_link_libraries(serial_tset PRIVATE serial)
 
 
 # if(Boost_FOUND)

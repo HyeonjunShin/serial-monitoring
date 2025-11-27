@@ -20,6 +20,8 @@
     "files.associations": {
         "iostream": "cpp",
         "cstring": "cpp"
-    }, 
+    },
+    "separators.enabledFoldingRanges": [],
+    
 
 }
