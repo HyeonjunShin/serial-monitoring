@@ -1,36 +1,16 @@
 #include "piezo_serial.hpp"
-#include "device.hpp"
 #include <iostream>
 #include <thread>
 
 PiezoSerial::PiezoSerial() : serial(io), queue(PACKET_SIZE) {}
 PiezoSerial::PiezoSerial(std::string serialPort)
     : serial(io), queue(PACKET_SIZE) {
-  std::cout << serialPort << std::endl;
-
-  // std::vector<uint8_t> read_buf(1024);
-  // while (true) {
-  //   boost::system::error_code ec;
-
-  //   try {
-  //     size_t n = serial.read_some(boost::asio::buffer(read_buf), ec);
-  //     if (ec) {
-  //       std::cerr << "Serial read error: " << ec.message() << std::endl;
-  //       break;
-  //     }
-
-  //     for (size_t i = 0; i < n; ++i) {
-  //       // queue.push(read_buf[i]);
-  //       std::cout << read_buf[i];
-  //     }
-
-  //   } catch (const std::exception &e) {
-  //     std::cerr << e.what() << std::endl;
-  //   }
-  // }
+  setPort(serialPort);
 }
+
 PiezoSerial::~PiezoSerial() { stop(); }
 void PiezoSerial::setPort(std::string serialPort) {
+  std::cout << serialPort << std::endl;
   try {
     serial.open(serialPort);
     serial.set_option(boost::asio::serial_port_base::baud_rate(BAUD_RATE));
@@ -44,17 +24,26 @@ void PiezoSerial::setPort(std::string serialPort) {
     exit(1);
   }
 }
+
+void PiezoSerial::addCallback(Callback callback) {
+  callbacks.push_back(callback);
+}
+
 void PiezoSerial::start() {
   running = true;
-  worker = std::thread(&PiezoSerial::readLoop, this);
+  workerReader = std::thread(&PiezoSerial::readLoop, this);
+  workerProcessor = std::thread(&PiezoSerial::processLoop, this);
 }
 
 void PiezoSerial::stop() {
   running = false;
-  serial.close();
-  if (worker.joinable()) {
-    worker.join();
+  if (workerReader.joinable()) {
+    workerReader.join();
   }
+  if (workerProcessor.joinable()) {
+    workerProcessor.join();
+  }
+  serial.close();
 }
 
 void PiezoSerial::readLoop() {
@@ -77,6 +66,7 @@ void PiezoSerial::readLoop() {
       std::cerr << e.what() << std::endl;
     }
   }
+  stop();
 }
 
 void PiezoSerial::processLoop() {

@@ -1,4 +1,5 @@
 
+#include "device.hpp"
 #include "queue.hpp"
 #include <atomic>
 #include <boost/asio/io_context.hpp>
@@ -6,13 +7,17 @@
 #include <cstdint>
 #include <thread>
 
+using Callback = std::function<void(PacketStruct packet)>;
+
 class PiezoSerial {
 private:
-  std::thread worker;
+  std::thread workerReader;
+  std::thread workerProcessor;
   std::atomic<bool> running;
   boost::asio::io_context io;
   boost::asio::serial_port serial;
   ThreadSafeQueue<uint8_t> queue;
+  std::vector<Callback> callbacks;
 
   void initSerial();
   void readLoop();
@@ -21,12 +26,11 @@ private:
 public:
   PiezoSerial();
   PiezoSerial(std::string serialPort);
-  PiezoSerial(std::string serialPort, ThreadSafeQueue<uint8_t> &queue);
   ~PiezoSerial();
 
   void start();
   void stop();
 
   void setPort(std::string serialPort);
-  void setQueue(ThreadSafeQueue<uint8_t> &queue);
+  void addCallback(Callback callback);
 };

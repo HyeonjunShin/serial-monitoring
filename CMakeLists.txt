@@ -5,6 +5,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_COMPILE_COMMANDS ON)
 
 MESSAGE("Build type: " ${CMAKE_BUILD_TYPE})
 
@@ -20,8 +21,6 @@ set(CPACK_PACKAGE_VERSION "${PROJECT_VERSION}")
 set(CPACK_GENERATOR "TGZ;ZIP")        
 set(CPACK_DEBIAN_PACKAGE_MAINTAINER "hyeonnnjunnn@gmail.com")
 
-
-# find_package(Boost REQUIRED)
 include(FetchContent)
 FetchContent_Declare(
   asio
@@ -37,7 +36,6 @@ target_include_directories(serial PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/include
   asio
 )
-
 
 add_executable(main 
   examples/main.cpp
@@ -58,9 +56,22 @@ target_include_directories(gui PRIVATE
 target_link_libraries(gui PRIVATE Qt6::Widgets)
 
 
-add_executable(serial_tset examples/serial_test.cpp)
-target_link_libraries(serial_tset PRIVATE serial)
-
+add_executable(callback_usage examples/callback_usage.cpp)
+target_link_libraries(callback_usage PRIVATE
+  serial
+)
+add_executable(logger_usage examples/logger_usage.cpp)
+target_link_libraries(logger_usage PRIVATE
+  serial
+)
+add_executable(gui_usage 
+  examples/gui_usage.cpp
+  ${CMAKE_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
+)
+target_link_libraries(gui_usage PRIVATE
+  serial
+  Qt6::Widgets
+)
 
 # if(Boost_FOUND)
 #   message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
