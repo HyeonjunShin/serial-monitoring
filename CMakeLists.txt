@@ -29,6 +29,15 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(asio)
 
+FetchContent_Declare(
+  boost
+  GIT_REPOSITORY https://github.com/boostorg/boost.git
+  GIT_TAG boost-1.89.0
+)
+set(BOOST_ENABLE_CMAKE ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(boost)
+
+
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 add_library(serial src/piezo_serial.cpp)
@@ -72,6 +81,16 @@ target_link_libraries(gui_usage PRIVATE
   serial
   Qt6::Widgets
 )
+add_executable(realtime_usage 
+  examples/realtime_usage.cpp
+  ${CMAKE_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
+)
+target_link_libraries(realtime_usage PRIVATE
+  serial
+  Qt6::Widgets
+  Boost::headers
+)
+
 
 # if(Boost_FOUND)
 #   message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
