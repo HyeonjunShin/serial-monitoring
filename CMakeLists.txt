@@ -46,14 +46,14 @@ target_include_directories(serial PUBLIC
   asio
 )
 
-add_executable(main 
-  examples/main.cpp
+add_executable(main_example 
+  examples/main_example.cpp
   ${CMAKE_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
 )
-target_include_directories(main PRIVATE 
+target_include_directories(main_example PRIVATE 
   ${CMAKE_SOURCE_DIR}/include
 )
-target_link_libraries(main PRIVATE Qt6::Widgets)
+target_link_libraries(main_example PRIVATE Qt6::Widgets)
 
 add_executable(gui
   examples/gui.cpp
@@ -81,16 +81,6 @@ target_link_libraries(gui_usage PRIVATE
   serial
   Qt6::Widgets
 )
-add_executable(realtime_usage 
-  examples/realtime_usage.cpp
-  ${CMAKE_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
-)
-target_link_libraries(realtime_usage PRIVATE
-  serial
-  Qt6::Widgets
-  Boost::headers
-)
-
 
 # if(Boost_FOUND)
 #   message(STATUS "Boost include dirs: ${Boost_INCLUDE_DIRS}")
