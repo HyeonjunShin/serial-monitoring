@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.20.0)
 project(serial_monitoring VERSION 0.1.0 LANGUAGES CXX)
 
 set(CMAKE_AUTOMOC ON)
+# set(CMAKE_AUTOUIC ON)
+# set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -37,23 +39,28 @@ FetchContent_Declare(
 set(BOOST_ENABLE_CMAKE ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(boost)
 
-
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
+add_library(realtime_graph 
+  src/realtime_spectrogram_widget.cpp
+  include/realtime_spectrogram_widget.hpp
+)
+target_include_directories(realtime_graph PRIVATE include)
+target_link_libraries(realtime_graph PUBLIC Qt6::Widgets)
 
 add_library(serial src/piezo_serial.cpp)
 target_include_directories(serial PUBLIC
-  ${CMAKE_CURRENT_SOURCE_DIR}/include
+  include
   asio
 )
 
 add_executable(main_example 
   examples/main_example.cpp
-  ${CMAKE_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
+  # ${CMAKE_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
 )
 target_include_directories(main_example PRIVATE 
   ${CMAKE_SOURCE_DIR}/include
 )
-target_link_libraries(main_example PRIVATE Qt6::Widgets)
+target_link_libraries(main_example PRIVATE realtime_graph)
 
 add_executable(gui
   examples/gui.cpp
@@ -62,7 +69,7 @@ add_executable(gui
 target_include_directories(gui PRIVATE 
   ${CMAKE_SOURCE_DIR}/include
 )
-target_link_libraries(gui PRIVATE Qt6::Widgets)
+target_link_libraries(gui PRIVATE realtime_graph)
 
 
 add_executable(callback_usage examples/callback_usage.cpp)
@@ -79,7 +86,7 @@ add_executable(gui_usage
 )
 target_link_libraries(gui_usage PRIVATE
   serial
-  Qt6::Widgets
+  realtime_graph
 )
 
 # if(Boost_FOUND)
