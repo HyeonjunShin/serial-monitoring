@@ -55,10 +55,10 @@ target_include_directories(serial PUBLIC
 
 add_executable(main_example 
   examples/main_example.cpp
-  # ${CMAKE_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
+  # ${CMAKE_CURRENT_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
 )
 target_include_directories(main_example PRIVATE 
-  ${CMAKE_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 target_link_libraries(main_example PRIVATE realtime_graph)
 
@@ -66,7 +66,7 @@ add_executable(gui
   examples/gui.cpp
 )
 target_include_directories(gui PRIVATE 
-  ${CMAKE_SOURCE_DIR}/include
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 target_link_libraries(gui PRIVATE realtime_graph)
 
@@ -81,7 +81,7 @@ target_link_libraries(logger_usage PRIVATE
 )
 add_executable(gui_usage 
   examples/gui_usage.cpp
-  ${CMAKE_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
 )
 target_link_libraries(gui_usage PRIVATE
   serial
