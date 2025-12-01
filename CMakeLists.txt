@@ -49,7 +49,7 @@ target_link_libraries(realtime_graph PUBLIC Qt6::Widgets)
 
 add_library(serial src/piezo_serial.cpp)
 target_include_directories(serial PUBLIC
-  include
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
   asio
 )
 
@@ -64,7 +64,6 @@ target_link_libraries(main_example PRIVATE realtime_graph)
 
 add_executable(gui
   examples/gui.cpp
-  ${CMAKE_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
 )
 target_include_directories(gui PRIVATE 
   ${CMAKE_SOURCE_DIR}/include
