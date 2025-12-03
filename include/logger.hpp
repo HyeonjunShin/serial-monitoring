@@ -24,7 +24,6 @@ public:
 
   ~Logger() { stop(); }
 
-  // 로그 쓰레드 시작
   void start() {
     std::lock_guard<std::mutex> lock(mutex_);
     if (running_)
@@ -117,7 +116,7 @@ private:
       }
     }
 
-    // 남은 데이터 모두 기록
+    // 남은 데이터 모두 기록30140
     while (true) {
       std::lock_guard<std::mutex> lock(mutex_);
       if (queue_.empty())
@@ -138,6 +137,7 @@ private:
                   .count();
 
     file_ << ms;
+    file_ << "," << packet.tick;
     for (int i = 0; i < 32; ++i)
       file_ << "," << packet.mic1[i];
     for (int i = 0; i < 32; ++i)

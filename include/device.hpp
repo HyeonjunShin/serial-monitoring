@@ -8,7 +8,6 @@
 
 #define DEVICE2
 
-static constexpr int MCU_CLOCK = 53760000;
 static constexpr int BAUD_RATE = 921600;
 static constexpr std::string_view SERIAL_PORT = "/dev/ttyUSB0";
 static constexpr uint8_t HEADER[4] = {0xFF, 0xFF, 0xFD, 0x00};
@@ -54,6 +53,7 @@ static constexpr uint16_t calcCRC(const uint8_t *data, size_t length) {
 }
 
 #ifdef DEVICE1
+static constexpr int MCU_CLOCK = 53760000;
 
 #pragma pack(push, 1)
 struct PacketStruct {
@@ -71,7 +71,7 @@ struct PacketStruct {
 #pragma pack(pop)
 static constexpr size_t PACKET_SIZE = sizeof(PacketStruct);
 
-std::ostream &operator<<(std::ostream &os, const PacketStruct &packet) {
+inline std::ostream &operator<<(std::ostream &os, const PacketStruct &packet) {
   os << "--- DataPacket Info ---" << std::endl;
 
   os << "Header: [";
@@ -107,6 +107,8 @@ std::ostream &operator<<(std::ostream &os, const PacketStruct &packet) {
 }
 
 #else
+// static constexpr int MCU_CLOCK = 153600000;
+static constexpr int MCU_CLOCK = 1;
 
 #pragma pack(push, 1)
 struct PacketStruct {

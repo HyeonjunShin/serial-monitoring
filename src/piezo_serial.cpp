@@ -1,4 +1,5 @@
 #include "piezo_serial.hpp"
+#include "device.hpp"
 #include <iostream>
 #include <thread>
 
@@ -72,7 +73,7 @@ void PiezoSerial::readLoop() {
 void PiezoSerial::processLoop() {
   uint8_t byte;
   std::vector<uint8_t> buffer;
-  buffer.reserve(512);
+  buffer.reserve(1024);
 
   while (running) {
     queue.wait_and_pop(byte);
@@ -90,7 +91,7 @@ void PiezoSerial::processLoop() {
           if (calcCRC(reinterpret_cast<uint8_t *>(&packet_vaild),
                       PACKET_SIZE - 2) == packet_vaild.crc) {
             buffer.erase(buffer.begin(), buffer.begin() + i + PACKET_SIZE);
-
+            // packet_vaild.tick = packet_vaild.tick / MCU_CLOCK
             for (auto &callback : callbacks) {
               // auto pkt_clone = packet_vaild.clone();
               // std::cout << packet_vaild << std::endl;

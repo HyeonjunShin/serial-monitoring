@@ -41,13 +41,13 @@ FetchContent_MakeAvailable(boost)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 add_library(realtime_graph 
-  src/realtime_spectrogram_widget.cpp
-  include/realtime_spectrogram_widget.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/realtime_spectrogram_widget.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/include/realtime_spectrogram_widget.hpp
 )
 target_include_directories(realtime_graph PRIVATE include)
 target_link_libraries(realtime_graph PUBLIC Qt6::Widgets)
 
-add_library(serial src/piezo_serial.cpp)
+add_library(serial ${CMAKE_CURRENT_SOURCE_DIR}/src/piezo_serial.cpp)
 target_include_directories(serial PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/include
   asio

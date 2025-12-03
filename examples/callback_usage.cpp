@@ -1,3 +1,4 @@
+#include "device.hpp"
 #include "piezo_serial.hpp"
 #include <iostream>
 #include <unistd.h>
@@ -11,11 +12,16 @@ int main(int argc, char *argv[]) {
     piezoSerial.setPort(argv[1]);
   }
 
-  piezoSerial.addCallback(
-      [](PacketStruct packet) -> void { std::cout << packet << std::endl; });
-  
+  piezoSerial.addCallback([](PacketStruct packet) -> void {
+    std::cout << packet << std::endl;
+    // float cur = static_cast<float>(packet.tick) / MCU_CLOCK;
+    // std::cout << cur << std::endl;
+    // std::cout << cur << ", " << cur - prev << std::endl;
+    // prev = cur;
+  });
+
   piezoSerial.start();
-  sleep(100);
+  sleep(10);
   piezoSerial.stop();
 
   return 0;
